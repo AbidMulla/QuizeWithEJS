@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            overflow: hidden;
+            position: fixed;
+        }
+
+        .img {
+            z-index: 9999;
+            position: absolute;
+            animation: pulse 3s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .img1 {
+            position: relative;
+            left: 80px;
+            top: 280px;
+        }
+
+        .img2 {
+            position: relative;
+            left: 380px;
+            top: -90px;
+        }
+
+        .img3 {
+            position: relative;
+            left: 680px;
+            top: -230px;
+        }
+
+        .img4 {
+            position: relative;
+            left: 980px;
+            top: -620px;
+        }
+
+        .img5 {
+            position: relative;
+            left: 1280px;
+            top: -790px;
+        }
+
+        @media (max-width: 768px) {
+            #container{
+                
+                margin-inline: -31px;
+            }
+            .img {
+                width: 100px;
+            }
+
+            body {
+                overflow-y: scroll;
+                position:static;
+                
+            }
+
+            .img1 {
+                left: 60px;
+                top: auto;
+            }
+
+            .img2 {
+                left: 180px;
+                top: auto;
+            }
+
+            .img3 {
+                left: 60px;
+                top: auto;
+            }
+
+            .img4 {
+                left: 180px;
+                top: auto;
+            }
+
+            .img5 {
+                left: 60px;
+                top: auto;
+            }
+        }
+    </style>
+
+    <div id="container" style="display: flex; flex-direction: column;">
+        <!-- Initially, all levels are disabled and hidden -->
+
+        <div class="img img1" >
+            <a href="/questions">
+                <img src="userAssects/img/level1.png" alt="">
+            </a>
+        </div>
+
+        <div class="img img2" >
+            <a href="/questions">
+                <img src="userAssects/img/level2.png" alt="">
+            </a>
+        </div>
+
+        <div class="img img3" >
+            <a href="/questions">
+                <img src="userAssects/img/level3.png" alt="">
+            </a>
+        </div>
+
+        <div class="img img4" >
+            <a href="/questions">
+                <img src="userAssects/img/level4.png" alt="">
+            </a>
+        </div>
+
+        <div class="img img5" >
+            <a href="/questions">
+                <img src="userAssects/img/level5.png" alt="">
+            </a>
+        </div>
+    </div>
+
+    <video id="myVideo" autoplay loop style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; object-fit: cover;">
+        <source src="userAssects/orangelevelsVideo.mp4" type="video/mp4">
+        <source src="userAssects/orangelevelsVideo.webm" type="video/webm">
+        <source src="userAssects/orangelevelsVideo.ogv" type="video/ogg">
+    </video>
+    
+    <audio autoplay loop>
+        <source src="userAssects/candyMusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+
+</body>
+
+</html>

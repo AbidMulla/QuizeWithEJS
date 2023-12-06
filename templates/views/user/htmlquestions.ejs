@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>Quize Started</title>
+        <link rel="stylesheet" href="userAssects/css/style.css" />
+    </head>
+    <body>
+         
+        
+
+        <style>
+            #video-background {
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          min-width: 100%;
+          min-height: 100%;
+          z-index: -1;
+          object-fit: cover;
+      }
+      </style>
+      <video autoplay loop muted poster="fallback.jpg" id="video-background">
+          <source src="userAssects/Amusement Park Circus Fair  - Free Background Loop.mp4" type="video/mp4">
+          <!-- Add additional source elements for other video formats (e.g., WebM) -->
+          Your browser does not support the video tag.
+      </video>
+
+        <!-- content here  -->
+        <div class="box" id="questionScreen">
+            <div class="title">
+                 Prerana institute online quize 
+            </div>
+            <div class="header">
+                <div class="scoreBox">Score: <span>0</span></div>
+                <div class="timerBox">Time left: <span></span></div>
+            </div>
+
+            <div class="questionBox">
+                <!-- <span>Q</span>  -->
+            </div>
+
+
+
+            
+            <div class="optionBox">
+                <span onclick="checkAnswer(this)" data-opt="1"></span>
+                <span onclick="checkAnswer(this)" data-opt="2"></span>
+                <span onclick="checkAnswer(this)" data-opt="3"></span>
+                <span onclick="checkAnswer(this)" data-opt="4"></span>
+            </div>
+
+
+
+
+            <div class="footer">
+                <button onclick="showResult(1)">Show Results</button>
+                <div class="con">
+                    <!-- <button onclick="showPrev(this)" class="disabled"><span>&#8592;</span>prev</button> -->
+                    <button onclick="showNext()">Next &#8594;</button>
+                </div>
+            </div>
+            <div class="count">
+                Question <span>1</span> / 10
+            </div>
+        </div>
+
+        <div class="box hidden" id="resultScreen" >
+            <div class="title">
+                Prerana Online Quiz Result
+            </div>
+            <div class="scoreBoard">
+                Total Score : <span> 60</span>
+            </div>
+
+
+            <div class="resultBox">
+                <label>Questions : </label>
+                <span id="totalQuestion"></span>
+                <label>Attempt : </label>
+                <span id="attemptQuestion"></span>
+                <label>Correct : </label>
+                <span id="correctQuestion"></span>
+                <label>Wrong : </label>
+                <span id="wrongAnswers"></span>
+            </div>
+            
+
+            
+            <div class="buttonBox">
+                <a href="/htmlLelevs">Start Again</a>
+            </div>
+
+            <div class="result-character"></div>
+
+        </div>
+
+
+
+    </body>
+    <script src="userAssects/js/jquery-3.5.1.min.js"></script>
+    <script src="userAssects/js/quiz.js"></script>
+    <script src="userAssects/js/script.js"></script>
+</html>

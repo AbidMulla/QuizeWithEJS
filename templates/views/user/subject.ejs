@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Select Subject</title>
+    <link rel="stylesheet" href="userAssects/css/style.css" />
+
+
+</head>
+
+<body class="">
+
+    <div class="container ">
+
+
+        <style>
+              #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        </style>
+        <video autoplay loop muted poster="fallback.jpg" id="video-background">
+            <source src="userAssects/Jungle Forest - Free Cartoon Background Loop.mp4" type="video/mp4">
+            <!-- Add additional source elements for other video formats (e.g., WebM) -->
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="left">
+            <img src="userAssects/img/PreranaImg.png" alt="Logo" id="tilt">
+        </div>
+
+        <div class="right">
+            <h1 class="title">Welcome To Prerana Institute Quiz</h1>
+            <h2>Features :-</h2>
+            <ul>
+                <li>10 Questions</li>
+                <li>10 Points for correct score</li>
+                <li>1 minutes timer</li>
+                <li>Get results Any Time</li>
+            </ul>
+
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                }
+
+                .title {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+
+                h2 {
+                    font-size: 18px;
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                }
+
+                li {
+                    margin-bottom: 10px;
+                }
+
+                label {
+                    font-size: 18px;
+                    display: block;
+                    margin-top: 20px;
+                }
+
+                select {
+                    font-size: 16px;
+                    padding: 8px;
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                }
+
+                #startQuiz {
+                    font-size: 16px;
+                    background-color: #1da3dd;
+                    color: #fff;
+                    border: none;
+                    border-radius: 25 px;
+                    padding: 15px 20px;
+                    cursor: pointer;
+                    margin-top: 20px;
+                    transition: background-color 0.3s ease;
+                }
+
+                #startQuiz:hover {
+                    background-color: #00b3ff;
+                }
+            </style>
+
+            <select id="quizDropdown">
+                <option value="#">SELECT THE SUBJECT</option>
+                <option value="/htmlLelevs">HTML Quiz</option>
+                <option value="/mathLevels">Math Quiz</option>
+            </select>
+
+            <!-- <button id="startQuiz">Start Quiz</button> -->
+            <a id="startQuiz">Start Quiz</a>
+
+        </div>
+
+        <!-- avaScript for  redirect  -->
+        <script>
+            // JavaScript to redirect to the selected quiz when the "Start Quiz" button is clicked
+            document.getElementById("startQuiz").addEventListener("click", function () {
+                var selectedOption = document.getElementById("quizDropdown").value;
+                if (selectedOption) {
+                    window.location.href = selectedOption;
+                }
+            });
+        </script>
+
+    </div>
+
+    <style>
+        #candyy {
+
+            position: absolute;
+            left: 10px;
+            width: 14%;
+            bottom: 120px;
+
+        }
+
+        #monkey {
+            position: absolute;
+            width: 15%;
+            right: -25px;
+            top: 10px;
+            animation: swing 2s ease-in-out infinite;
+            transform-origin: top right;
+        }
+
+        @keyframes swing {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(10deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            #monkey {
+                position: absolute;
+                width: 34%;
+                right: -15px;
+                top: 10px;
+                animation: swing 2s ease-in-out infinite;
+                transform-origin: top right;
+            }
+
+            #candyy {
+                position: absolute;
+                left: 25px;
+                width: 30%;
+                bottom: 18px;
+            }
+        }
+    </style>
+
+    <img id="candyy" src="userAssects/img/candySwing.gif" alt="">
+
+    <img id="monkey" src="userAssects/img/monkey.png" alt="">
+
+
+</body>
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/tilt.min.js"></script>
+<script>
+    $("#tilt").tilt({
+        scale: 1.1
+    })
+</script>
+
+</html>

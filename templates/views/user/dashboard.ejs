@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="userAssects/assets/img" rel="icon">
+  <link href="userAssects/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="userAssects/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="userAssects/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="userAssects/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="userAssects/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="userAssects/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="userAssects/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="userAssects/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="userAssects/assets/css/style.css" rel="stylesheet">
+
+ 
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+   
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="/dashboard" class="logo d-flex align-items-center">
+        <img src="userAssects/assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Prerana Institute</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center" style="padding-inline: 15px;">
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0"  href="#" data-bs-toggle="dropdown">
+            <img src="userAssects/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link " href="/dashboard">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+ 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Let's Play</span>
+        </a>
+      </li>
+
+    </ul>
+
+  </aside>
+
+  <main id="main" class="main">
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <div class="col-lg-12">
+
+          <div class="row">
+
+            <div class="col-xxl-3 col-md-6">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <h5 class="card-title">Exams</h5>
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <!-- <i class="bi bi-cart"></i> -->
+                    </div>
+                    <div class="ps-3">
+                      <h6>48</h6>
+                      <span class="text-success small pt-1 fw-bold"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-3 col-md-6">
+              <div class="card info-card revenue-card">
+                <div class="card-body">
+                  <h5 class="card-title">Pass</h5>
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <!-- <i class="bi bi-currency-dollar"></i> -->
+                    </div>
+                    <div class="ps-3">
+                      <h6>20</h6>
+                      <span class="text-success small pt-1 fw-bold"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-3 col-xl-12">
+              <div class="card info-card customers-card">
+                <div class="card-body">
+                  <h5 class="card-title">Fail</h5>
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <!-- <i class="bi bi-people"></i> -->
+                    </div>
+                    <div class="ps-3">
+                      <h6>38</h6>
+                      <span class="text-danger small pt-1 fw-bold"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-3 col-xl-12">
+                <div class="card info-card customers-card">
+                  <div class="card-body">
+                    <h5 class="card-title">Points</h5>
+                    <div class="d-flex align-items-center">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-currency-dollar"></i>
+                    </div>
+                      <div class="ps-3">
+                        <h6>200</h6>
+                        <span class="text-danger small pt-1 fw-bold"></span>
+  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <!-- <div class="col-12">
+              <div class="card">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Reports <span>/Today</span></h5>
+
+                  <div id="reportsChart"></div>
+
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      new ApexCharts(document.querySelector("#reportsChart"), {
+                        series: [{
+                          name: 'Sales',
+                          data: [31, 40, 28, 51, 42, 82, 56],
+                        }, {
+                          name: 'Revenue',
+                          data: [11, 32, 45, 32, 34, 52, 41]
+                        }, {
+                          name: 'Customers',
+                          data: [15, 11, 32, 18, 9, 24, 11]
+                        }],
+                        chart: {
+                          height: 350,
+                          type: 'area',
+                          toolbar: {
+                            show: false
+                          },
+                        },
+                        markers: {
+                          size: 4
+                        },
+                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                        fill: {
+                          type: "gradient",
+                          gradient: {
+                            shadeIntensity: 1,
+                            opacityFrom: 0.3,
+                            opacityTo: 0.4,
+                            stops: [0, 90, 100]
+                          }
+                        },
+                        dataLabels: {
+                          enabled: false
+                        },
+                        stroke: {
+                          curve: 'smooth',
+                          width: 2
+                        },
+                        xaxis: {
+                          type: 'datetime',
+                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                        },
+                        tooltip: {
+                          x: {
+                            format: 'dd/MM/yy HH:mm'
+                          },
+                        }
+                      }).render();
+                    });
+                  </script>
+            
+
+                </div>
+
+              </div>
+            </div> -->
+
+            <!-- table -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+                <div class="card-body">
+                  <h5 class="card-title">Activity</h5>
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Questions</th>
+                        <th scope="col">Attempt</th>
+                        <th scope="col">Currect</th>
+                        <th scope="col">Wrong</th>
+                        <th scope="col">Time</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20 </td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                    
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                    
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">1</a></th>
+                        <td>Brandon Jacob</td>
+                    
+                        <td>20/08/2023</td>
+                        <td>Math</td>
+                        <td>20</td>
+                        <td><span class="badge bg-warning">20</span></td>
+                        <td><span class="badge bg-success">12</span></td>
+                        <td><span class="badge bg-danger">8</span></td>
+                        <td>10:30</td>
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-4">
+        </div>
+      </div>
+    </section>
+  </main> 
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Prerana Institute</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+       Designed by <a href="#">Ellipsonic</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="userAssects/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="userAssects/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="userAssects/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="userAssects/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="userAssects/assets/vendor/quill/quill.min.js"></script>
+  <script src="userAssects/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="userAssects/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="userAssects/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="userAssects/assets/js/main.js"></script>
+
+</body>
+
+</html>

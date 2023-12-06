@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quize</title>
+
+    <link rel="stylesheet" href="path-to-wow-css/animate.css">
+
+    <style>
+        body {
+            background-color: #222;
+            background-size: cover;
+            position: relative;
+            overflow-x: hidden;
+
+        }
+
+
+        h1 {
+            font-family: arial;
+            font-size: 40px;
+            text-align: center;
+            color: #fff;
+            /* display: flex; */
+            justify-content: center;
+            align-self: center;
+            z-index: 5;
+            grid-column-start: 3;
+            grid-row-start: 1;
+        }
+
+        h2 {
+            font-family: arial;
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            z-index: 5;
+            grid-column-start: 1;
+            grid-row-start: 3;
+        }
+
+
+        .canvas {
+            width: 100%;
+            height: 722px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+            animation-delay: 1s;
+            background: #e2b553;
+            animation-name: daylight;
+            animation-duration: 200s;
+            animation-iteration-count: infinite;
+            overflow: hidden;
+            animation-timing-function: linear;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            align-items: center;
+        }
+
+        .eclipse {
+            width: 80%;
+            height: 30%;
+            /* border: 1px solid #000; */
+            position: absolute;
+            left: 10%;
+            top: 70%;
+            animation-name: time;
+            animation-duration: 200s;
+            animation-iteration-count: infinite;
+            z-index: 0;
+            animation-timing-function: linear;
+        }
+
+        .sun {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #ffa;
+            position: absolute;
+            top: -35px;
+            left: -35px;
+            z-index: -1;
+        }
+
+        .sun.a {
+            background-color: #f2f2f2;
+            bottom: -35px;
+            right: -35px;
+            left: auto;
+            top: auto;
+        }
+
+        .moon {
+            position: absolute;
+            top: -35px;
+            right: -35px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #f2f2f2;
+            z-index: 0;
+        }
+
+        .moon.a {
+            bottom: -35px;
+            left: -35px;
+            top: auto;
+            right: auto;
+
+        }
+
+        .cloud {
+            width: 50px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #f2f2f2;
+            position: absolute;
+            top: 20px;
+            left: -20%;
+            animation-name: cloud;
+            animation-duration: 70s;
+            animation-iteration-count: infinite;
+            z-index: 1;
+        }
+
+        .cloud::before {
+            content: '';
+            width: 35px;
+            height: 30px;
+            background-color: #f2f2f2;
+            margin-left: -20px;
+            margin-top: 10px;
+            display: block;
+            border-radius: 50%;
+        }
+
+        .cloud::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background-color: #f2f2f2;
+            position: absolute;
+            right: -10px;
+            top: 17px;
+            border-radius: 50%;
+        }
+
+        .cloud.a {
+            top: 150px;
+            animation-duration: 55s;
+            background-color: #f2f2f2;
+        }
+
+        .cloud.b {
+            top: 100px;
+            left: -15%;
+            animation-duration: 38s;
+        }
+
+        .cloud.c {
+            top: 250px;
+            left: -10%;
+            animation-duration: 25s;
+        }
+
+        .land {
+            width: 100%;
+            height: 320px;
+            position: absolute;
+            left: -50px;
+            bottom: -120px;
+            background-color: #83a81c;
+            border-radius: 50%;
+            z-index: 1;
+            animation-name: land;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+
+        .land::before {
+            width: 100%;
+            height: 200px;
+            content: '';
+            position: absolute;
+            left: 40%;
+            top: 20%;
+            border-radius: 50%;
+            background-color: #96be29;
+            transform: rotate(-15deg);
+            animation-name: land1;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+
+        .tree {
+            width: 10px;
+            height: 40px;
+            background-color: #766257;
+            left: 200px;
+            position: absolute;
+            bottom: 260px;
+        }
+
+        .tree::before {
+            content: '';
+            position: absolute;
+            bottom: 125%;
+            left: -7px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 20px 43px 20px;
+            border-color: transparent transparent #bfde3b transparent;
+            z-index: 1;
+            animation-name: windy;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        .tree::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: -25px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 30px 60px 30px;
+            border-color: transparent transparent #93ae29 transparent;
+        }
+
+        .tree.a {
+            transform: scale(0.5);
+            left: 250px;
+        }
+
+        .tree.b {
+            transform: scale(0.75);
+            left: 280px;
+        }
+
+        .tree.c {
+            transform: scale(1.5);
+            left: 450px;
+            top: 100px;
+        }
+
+        .tree.d {
+            transform: scale(1.25);
+            left: 530px;
+            top: 80px;
+            z-index: 0;
+        }
+
+        .star {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+            animation-name: fader;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+
+        .star::before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            animation-name: blinker;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+
+        .star::after {
+            content: '';
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            left: -200px;
+            top: 50px;
+            animation-name: blinker;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+
+        .star.a {
+            top: 30px;
+            left: 90%;
+        }
+
+        .star.b {
+            top: 120px;
+            left: 70%;
+        }
+
+        .star.c {
+            top: 100px;
+            left: 65%;
+        }
+
+        .star.d {
+            top: 200px;
+            left: 15%;
+        }
+
+        .swirly-wind {
+            position: absolute;
+            top: 30%;
+            animation-name: wind;
+            animation-duration: 12s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            z-index: 4;
+        }
+
+        .swirly-wind>span {
+            width: 150px;
+            background-color: #eee;
+            height: 2px;
+            display: block;
+            position: relative;
+        }
+
+        .swirly-wind>span:first-child {
+            width: 200px;
+        }
+
+        .swirly-wind>span:nth-child(1)::before {
+            display: none;
+        }
+
+        .swirly-wind>span:nth-child(2) {
+            margin-top: -10px;
+            float: right;
+        }
+
+        .swirly-wind>span:nth-child(3) {
+            margin-top: 15px;
+            width: 75px;
+            float: right;
+        }
+
+        .swirly-wind span::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: #fff 2px solid;
+            bottom: calc(100% - 2px);
+            right: -15px;
+            -webkit-clip-path: polygon(100% 0, 100% 100%, 50% 100%, 0 0);
+            clip-path: polygon(100% 0, 100% 100%, 50% 100%, 0 0);
+        }
+
+        .swirly-wind>span:nth-child(3)::before {
+            top: calc(100% - 2px);
+            -webkit-clip-path: polygon(100% 0, 100% 100%, 14% 100%, 35% 0);
+            clip-path: polygon(100% 0, 100% 100%, 14% 100%, 35% 0);
+        }
+
+        .swirly-wind.a {
+            top: 20%;
+            width: 75px;
+            animation-duration: 8s;
+        }
+
+        .swirly-wind.b {
+            top: 45%;
+            width: 120px;
+            animation-duration: 15s;
+            height: 1px;
+        }
+
+        .swirly-wind.b::before {
+            border: #fff 1px solid;
+            bottom: calc(100% - 1px);
+        }
+
+        .wind {
+            width: 150px;
+            background-color: #eee;
+            height: 2px;
+            position: absolute;
+            top: 30%;
+            animation-name: wind;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        .wind::before {
+            content: '';
+            position: absolute;
+            left: 200px;
+            width: 100px;
+            height: 1px;
+            background-color: #eee;
+            top: 100px;
+        }
+
+        .wind::after {
+            content: '';
+            position: absolute;
+            left: 400px;
+            width: 180px;
+            height: 1px;
+            background-color: #eee;
+            top: 30px;
+        }
+
+        @keyframes time {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes daylight {
+            0% {
+                background-color: #e2b553;
+                /*orange*/
+            }
+
+            2% {
+                background-color: #70c4c6;
+                /*light blue*/
+            }
+
+            38% {
+                background-color: #70c4c6;
+                /*Light blue*/
+            }
+
+            40% {
+                background-color: #e2b553;
+                /*orange*/
+            }
+
+            52% {
+                background-color: #524b64;
+                /*purple*/
+            }
+
+            73% {
+                background-color: #354a4a;
+                /*dark green*/
+            }
+
+            88% {
+                background-color: #354a4a;
+                /*dark green*/
+            }
+
+            100% {
+                background-color: #e2b553;
+                /*orange*/
+            }
+        }
+
+        @keyframes land {
+            40% {
+                background-color: #4d6932;
+            }
+
+            70% {
+                background-color: #4d6932;
+            }
+        }
+
+        @keyframes land1 {
+            40% {
+                background-color: #5b793e;
+            }
+
+            70% {
+                background-color: #5b793e;
+            }
+        }
+
+        @keyframes cloud {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(2000px);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fader {
+            0% {
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 1;
+            }
+
+            60% {
+                opacity: 0.4;
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes blinker {
+            0% {
+                opacity: 0;
+            }
+
+            18% {
+                opacity: 0;
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            40% {
+                opacity: 0;
+            }
+
+            60% {
+                opacity: 1;
+            }
+
+            70% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes blinker-1 {
+            0% {
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 1;
+            }
+
+            60% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes windy {
+            15% {
+                transform: translateX(5px);
+                transform: rotate(9deg);
+            }
+
+            80% {
+                transform: translateX(7px);
+                transform: rotate(20deg);
+            }
+
+            80% {
+                transform: translateX(5px);
+                transform: rotate(5deg);
+            }
+        }
+
+        @keyframes wind {
+            0% {
+                left: -800px;
+                opacity: 0
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            70% {
+                left: 1920px;
+                opacity: 1;
+            }
+
+            90% {
+                left: 1920px;
+                opacity: 0;
+            }
+
+            100% {
+                left: -1000px;
+                opacity: 0;
+            }
+        }
+
+
+        @keyframes snowday {
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        .snow {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+        }
+
+        .snow.fall {
+            animation-name: snowday;
+            animation-duration: 5s;
+        }
+    </style>
+
+    <!-- Cloud CSS  -->
+    <style>
+        ::selection {
+            background: transparent;
+        }
+
+        /* CLOUDS */
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            margin: auto;
+            border-radius: 100%;
+            background: transparent;
+            display: block;
+
+        }
+
+        /* JUMP */
+        h1 {
+            cursor: default;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            right: 0;
+            bottom: -370px;
+            width: 100%;
+            height: 100px;
+            margin: auto;
+            display: block;
+            text-align: center;
+            line-height: 80px;
+        }
+
+        @media only screen and (max-width: 671px) {
+
+h1 {
+    left: auto;
+
+}
+        }
+        h1 span {
+            position: relative;
+            top: 10px;
+            display: inline-block;
+            -webkit-animation: bounce 0.90s ease-in-out infinite alternate;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        h1 span:nth-child(2) {
+            -webkit-animation-delay: 0.1s;
+        }
+
+        h1 span:nth-child(3) {
+            -webkit-animation-delay: 0.2s;
+        }
+
+        h1 span:nth-child(4) {
+            -webkit-animation-delay: 0.3s;
+        }
+
+        h1 span:nth-child(5) {
+            -webkit-animation-delay: 0.4s;
+        }
+
+        h1 span:nth-child(6) {
+            -webkit-animation-delay: 0.5s;
+        }
+
+        h1 span:nth-child(7) {
+            -webkit-animation-delay: 0.6s;
+        }
+
+        h1 span:nth-child(8) {
+            -webkit-animation-delay: 0.2s;
+        }
+
+        h1 span:nth-child(9) {
+            -webkit-animation-delay: 0.3s;
+        }
+
+        h1 span:nth-child(10) {
+            -webkit-animation-delay: 0.4s;
+        }
+
+        h1 span:nth-child(11) {
+            -webkit-animation-delay: 0.5s;
+        }
+
+        h1 span:nth-child(12) {
+            -webkit-animation-delay: 0.6s;
+        }
+
+        h1 span:nth-child(13) {
+            -webkit-animation-delay: 0.7s;
+        }
+
+        h1 span:nth-child(14) {
+            -webkit-animation-delay: 0.8s;
+        }
+
+        h1 span:nth-child(15) {
+            -webkit-animation-delay: 0.9s;
+        }
+
+        h1 span:nth-child(16) {
+            -webkit-animation-delay: 1.1s;
+        }
+
+        h1 span:nth-child(17) {
+            -webkit-animation-delay: 1.2s;
+        }
+
+        h1 span:nth-child(18) {
+            -webkit-animation-delay: 1.3s;
+        }
+
+
+
+        /* ANIMATION */
+        @-webkit-keyframes bounce {
+            100% {
+                top: 20px;
+                text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+                    0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+                    0 50px 25px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+
+
+        @media only screen and (max-width: 600px) {
+
+            h1 span {
+                font-size: 15px;
+
+            }
+        }
+    </style>
+
+    <!-- Button CSS  -->
+    <style>
+        .custom-btn {
+            width: 130px;
+            height: 40px;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 25px;
+            font-weight: 500;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        /* 12Btn */
+        .btn-12 {
+
+            position: relative;
+            left: -82px;
+            bottom: 516px;
+            z-index: 100;
+            border: none;
+            box-shadow: none;
+            height: 40px;
+            line-height: 42px;
+        }
+
+        @media only screen and (max-width: 671px) {
+
+            .btn-12 {
+
+
+                left: -72px;
+                bottom: 516px;
+
+            }
+
+
+        }
+
+        .btn-12 span {
+            background: rgb(0, 172, 238);
+            background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
+            position: absolute;
+            width: 130px;
+            height: 40px;
+            box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+                7px 7px 20px 0px rgba(0, 0, 0, .1),
+                4px 4px 5px 0px rgba(0, 0, 0, .1);
+            border-radius: 5px;
+            margin: 0;
+            text-align: center;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+        }
+
+        .btn-12 span:nth-child(1) {
+            box-shadow:
+                -7px -7px 20px 0px #fff9,
+                -4px -4px 5px 0px #fff9,
+                7px 7px 20px 0px #0002,
+                4px 4px 5px 0px #0001;
+            -webkit-transform: rotateX(90deg);
+            -moz-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+            -webkit-transform-origin: 50% 50% -20px;
+            -moz-transform-origin: 50% 50% -20px;
+            transform-origin: 50% 50% -20px;
+        }
+
+        .btn-12 span:nth-child(2) {
+            -webkit-transform: rotateX(0deg);
+            -moz-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+            -webkit-transform-origin: 50% 50% -20px;
+            -moz-transform-origin: 50% 50% -20px;
+            transform-origin: 50% 50% -20px;
+        }
+
+        .btn-12:hover span:nth-child(1) {
+            box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+                7px 7px 20px 0px rgba(0, 0, 0, .1),
+                4px 4px 5px 0px rgba(0, 0, 0, .1);
+            -webkit-transform: rotateX(0deg);
+            -moz-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+        }
+
+        .btn-12:hover span:nth-child(2) {
+            box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+                7px 7px 20px 0px rgba(0, 0, 0, .1),
+                4px 4px 5px 0px rgba(0, 0, 0, .1);
+            color: transparent;
+            -webkit-transform: rotateX(-90deg);
+            -moz-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+        }
+
+
+        /* 5Btn */
+        .btn-5 {
+            width: 130px;
+            height: 40px;
+            line-height: 42px;
+            padding: 0;
+            border: none;
+            background: #018bf7;
+            background: linear-gradient(0deg, #018bf7 0% #018bf7 100%);
+            z-index: 100;
+            position: relative;
+            top: -567px;
+            left: 74px;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 671px) {
+
+            .btn-5 {
+
+
+                left: 84px;
+                bottom: 516px;
+
+            }
+        }
+
+        .btn-5:hover {
+            color: #f0094a;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .btn-5:before,
+        .btn-5:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 2px;
+            width: 0;
+            background: #f0094a;
+            box-shadow:
+                -1px -1px 5px 0px #fff,
+                7px 7px 20px 0px #0003,
+                4px 4px 5px 0px #0002;
+            transition: 400ms ease all;
+        }
+
+        .btn-5:after {
+            right: inherit;
+            top: inherit;
+            left: 0;
+            bottom: 0;
+        }
+
+        .btn-5:hover:before,
+        .btn-5:hover:after {
+            width: 100%;
+            transition: 800ms ease all;
+            background-color: white;
+        }
+    </style>
+
+</head>
+
+<body style="overflow-y: hidden;">
+
+    <a href="/" id="logoutButton" class="custom-btn btn-logout">
+        Logout
+    </a>
+
+    <style>
+        /* Logout button styles */
+#logoutButton {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    text-align: center; 
+    /* padding-in: -20px; */
+    align-items: center;
+    background-color: #f44336; /* Red color, you can change this */
+    color: #fff;
+    padding: 0px 0px;
+    /* border-radius: 5px;   */
+    text-decoration: none;
+    z-index: 1000;
+    /* transition: background-color 0.3s ease; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#logoutButton:hover {
+    background-color: #d32f2f; /* Darker red color on hover */
+}
+
+/* Your existing styles */
+/* ... */
+
+    </style>
+
+    <!-- background  -->
+    <div class="canvas">
+        <div class="cloud"></div>
+        <div class="cloud a"></div>
+        <div class="cloud b"></div>
+        <div class="cloud c"></div>
+
+        <div class="land">
+            <div class="tree"></div>
+            <div class="tree a"></div>
+            <div class="tree b"></div>
+            <div class="tree c"></div>
+            <div class="tree d"></div>
+            <div class="tree c"></div>
+            <div class="tree d"></div>
+            <div class="tree c"></div>
+            <div class="tree d"></div>
+        </div>
+
+        <div class="star"></div>
+        <div class="star a"></div>
+        <div class="star b"></div>
+        <div class="star c"></div>
+        <div class="star d"></div>
+        <div class="wind"></div>
+
+        <div class="swirly-wind a"></div>
+        <div class="swirly-wind b"></div>
+
+        <div class="eclipse">
+            <div class="sun"></div>
+            <div class="sun a"></div>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; margin-top: 150px;">
+
+        <div style="display: flex; justify-content: center;height: 0px; ">
+            <a href="/dashboard" class="custom-btn btn-5 "
+                style="text-align: center; text-decoration: none;"><span>Dashboard</span></a>
+            <a href="/subject" id="gobutton" class="custom-btn btn-12"><span>Go</span><span>Let's Play!</span></a>
+            <script>
+                var goButton = document.getElementById('gobutton');
+                goButton.addEventListener('click', function () {
+                    // Redirect to quize1.html
+                    window.location.href = 'quize1.html';
+                });
+            </script>
+        </div>
+
+
+        <!-- quize pendulum -->
+        <style>
+            @keyframes swing {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                20% {
+                    transform: rotate(10deg);
+                }
+
+                40% {
+                    transform: rotate(-10deg);
+                }
+
+                60% {
+                    transform: rotate(10deg);
+                }
+
+                80% {
+                    transform: rotate(-10deg);
+                }
+
+                100% {
+                    transform: rotate(0deg);
+                }
+            }
+
+            .quizePendulum {
+                z-index: 999;
+                width: 500px;
+                position: absolute;
+                top: -6%;
+                left: 32%;
+                transform: translate(-50%, -50%);
+                animation: swing ease 8s infinite;
+                transform-origin: top center;
+            }
+
+            @media only screen and (max-width: 720px) {
+
+                .quizePendulum {
+                    z-index: 999;
+                    width: 300px;
+                    position: absolute;
+                    top: -2%;
+                    left: 25%;
+
+                }
+
+            }
+
+            @media only screen and (max-width: 671px) {
+
+                .quizePendulum {
+                    z-index: 999;
+                    width: 250px;
+                    position: absolute;
+                    top: -1%;
+                    left: 15%;
+
+                }
+
+            }
+        </style>
+
+
+        <img class="quizePendulum" src="userAssects/img/landingPendulum.png" alt="">
+
+        <h1>
+            <span>W</span>
+            <span>E</span>
+            <span>L</span>
+            <span>C</span>
+            <span>O</span>
+            <span>M</span>
+            <span>E</span>
+            <span> </span>
+            <span>T</span>
+            <span>O</span>
+            <span> </span>
+            <span>P</span>
+            <span>R</span>
+            <span>E</span>
+            <span>R</span>
+            <span>A</span>
+            <span>N</span>
+            <span>A</span>
+        </h1>
+
+    </div>
+
+</body>
+
+</html>

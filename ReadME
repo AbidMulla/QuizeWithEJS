@@ -1,0 +1,23 @@
+How to add SUbject
+
+1. add SUbjectNameQuizQuestions.js file in public Js folder.
+    add all the question.
+
+2. add subjectNameScript.js file in public, Js folder
+    Change file name in line number 6
+    
+    You can chage Number of question
+    You can chage Time
+
+3. add subjectNameLevels.ejs page in view
+    Chnage the TItle
+    change the Hyper 
+
+4. add subjectNameQuestion.ejs page in view
+    Change the title 
+    Javascript src name to your JS file name
+    <script src="userAssects/js/SUbjectNameQuizQuestions.js"></script>
+    <script src="userAssects/js/subjectNameScript.js"></script>
+
+5. now you added the subject successfully
+

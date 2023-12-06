@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <style>
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        .btn1{
+            position: relative;
+            top: -80px;
+            
+        }
+    </style>
+    
+</head>
+<body>
+
+    <video autoplay loop muted poster="fallback.jpg" id="video-background">
+        <source src="userAssects/Classroom Background_Animated Cartoon Background Loop_ Virtual Classroom Background.mp4" type="video/mp4">
+        <!-- Add additional source elements for other video formats (e.g., WebM) -->
+        Your browser does not support the video tag.
+    </video>
+    
+    <style>
+           @keyframes swing {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                20% {
+                    transform: rotate(10deg);
+                }
+
+                40% {
+                    transform: rotate(-10deg);
+                }
+
+                60% {
+                    transform: rotate(10deg);
+                }
+
+                80% {
+                    transform: rotate(-10deg);
+                }
+
+                100% {
+                    transform: rotate(0deg);
+                }
+            }
+        .quizePendulum {
+            z-index: 999;
+            width: 410px;
+            position: absolute;
+            top: -1%;
+            left: 35%;
+    
+            transform: translate(-50%, -50%);
+            animation: swing ease 8s infinite;
+            transform-origin: top center;
+        }
+    
+        @media only screen and (max-width: 720px) {
+    
+            .quizePendulum {
+                z-index: 999;
+                width: 300px;
+                position: absolute;
+                top: -5%;
+                left: 25%;
+    
+            }
+    
+        }
+    
+        @media only screen and (max-width: 671px) {
+    
+            .quizePendulum {
+                z-index: 999;
+                width: 250px;
+                position: absolute;
+                top: -1%;
+                left: 15%;
+    
+            }
+    
+        }
+    </style>
+    <!-- Add your <a> tag here in the middle of the page -->
+    <div style=" height: 100vh; width: 100%; display: flex; justify-content: center; align-items: center;">
+
+        <img class="quizePendulum" src="userAssects/img/landingPendulum.png" alt="">
+
+
+           <a href="/subject" class="btn1 btn btn-primary" >Let's Play</a>
+
+
+   </div>
+
+</body>
+</html>

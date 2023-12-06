@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>Register</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+
+    <!-- Form CSS  -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: "lato", sans-serif;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: 2%;
+        }
+
+        span {
+            margin-left: 0.4rem;
+        }
+
+
+        .signupFrm {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #c0deed;
+
+        }
+
+        @media (max-width: 1340px) {
+            .signupFrm {
+                height: 610px;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                flex-direction: column;
+
+            }
+        }
+
+        .form {
+            background-color: white;
+            width: 400px;
+            border-radius: 8px;
+            padding: 20px 40px;
+            box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+        }
+
+        .title {
+            font-size: 30px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .inputContainer {
+            position: relative;
+            height: 45px;
+            width: 90%;
+            margin-bottom: 17px;
+        }
+
+        /* Style the inputs */
+
+        .input {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 110%;
+            border: 1px solid #DADCE0;
+            border-radius: 7px;
+            font-size: 16px;
+            padding: 0 20px;
+            outline: none;
+            background: none;
+            z-index: 1;
+        }
+
+        /* Hide the placeholder texts (a) */
+
+        ::placeholder {
+            color: transparent;
+        }
+
+        .label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 0 4px;
+            background-color: white;
+            color: #DADCE0;
+            font-size: 16px;
+            transition: 0.5s;
+            z-index: 0;
+        }
+
+        .submitBtn {
+            display: block;
+
+            padding: 15px 30px;
+            border: none;
+            background-color: purple;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 30px;
+            margin: auto;
+        }
+
+        .submitBtn:hover {
+            background-color: rgb(147, 2, 147);
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: white;
+        }
+
+        .input:focus+.label {
+            top: -7px;
+            left: 3px;
+            z-index: 10;
+            font-size: 14px;
+            font-weight: 600;
+            color: purple;
+        }
+
+        .input:focus {
+            border: 2px solid purple;
+        }
+
+        .input:not(:placeholder-shown)+.label {
+            top: -7px;
+            left: 3px;
+            z-index: 10;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .invisible {
+            display: none;
+            visibility: hidden;
+        }
+
+        .visibility {
+            display: block;
+            visibility: visible;
+        }
+
+        .loginaccount {}
+
+        @media screen and (max-width: 500px) {
+
+            .form {
+                width: 350px !important;
+            }
+
+        }
+    </style>
+
+    <!-- background CSS  -->
+    <style>
+        .cloud {
+            background: url('https://raw.githubusercontent.com/claudz1/CodepenImages/master/bg-clouds.png') repeat-x;
+            height: 175px;
+            width: 100%;
+            animation: cloudani 10s linear infinite;
+        }
+
+        @keyframes cloudani {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 100% 0;
+            }
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            if (document.getElementById("alert-message").innerHTML == "") {
+                document.getElementsByClassName("alert")[0].classList.remove("visibility");
+                document.getElementsByClassName("alert")[0].classList.add("invisible");
+            } else {
+                document.getElementsByClassName("alert")[0].classList.add("visibility");
+                document.getElementsByClassName("alert")[0].classList.remove("invisible");
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+
+    <div class="sky">
+        <div class="cloud"></div>
+
+        <div class="alert alert-danger alert-dismissible fade show visibility" role="alert">
+            <strong id="alert-message"></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="signupFrm">
+            <p class="loginaccount">Already have account? <a href="/"><span style="color: black;">Login here!</span></a>
+            </p>
+            <form action="#" class="form" method="post">
+                <h1 class="title">Register Here!</h1>
+        
+        
+                <div class="inputContainer">
+                    <input type="text" class="input" placeholder="name" id="name" name="name" autocomplete="off" autofocus="off"
+                        required>
+                    <label for="" class="label">name</label>
+                </div>
+                <div class="inputContainer">
+                    <input type="text" class="input" placeholder="school" id="school" name="school" autocomplete="off"
+                        autofocus="off" required>
+                    <label for="" class="label">school</label>
+                </div>
+                <div class="inputContainer">
+                    <input type="text" class="input" placeholder="class" id="class" name="class" autocomplete="off"
+                        autofocus="off" required>
+                    <label for="" class="label">Class</label>
+                </div>
+        
+                <div class="inputContainer">
+                    <input type="email" class="input" placeholder="Email" id="email" name="email" autocomplete="off" required>
+                    <label for="" class="label">Email</label>
+                </div>
+        
+                <div class="inputContainer">
+                    <input type="tel" class="input" placeholder="Phone" id="number" name="number" autocomplete="off" required>
+                    <label for="" class="label">number</label>
+                </div>
+        
+                <div class="inputContainer">
+                    <input type="password" class="input" id="password" name="password1" placeholder="Password"
+                        autocomplete="off" required>
+                    <label for="" class="label">Password</label>
+                </div>
+        
+                <input type="submit" class="submitBtn" value="Sign up">
+        
+            </form>
+            <br>
+            
+        </div>
+        
+    </div>
+</body>
+</html>
